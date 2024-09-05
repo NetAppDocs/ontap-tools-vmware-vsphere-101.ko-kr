@@ -1,0 +1,42 @@
+---
+permalink: automation/storage-workflow.html 
+sidebar: sidebar 
+keywords: REST APIs, swagger 
+summary: 워크플로는 특정 관리 작업 또는 목표를 달성하는 데 필요한 하나 이상의 단계를 순서대로 수행하는 것입니다. 
+---
+= 스토리지 검색
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+검색 간격은 구성 맵의 일부로 구성할 수 있습니다. 예약된 검색은 60분마다 실행됩니다. 여기서 제공되는 API는 로컬 범위에 추가되는 지정된 스토리지 백엔드에 대해 필요 시 검색을 실행하는 것입니다.
+
+다음 API를 사용하여 검색을 실행합니다.
+
+[listing]
+----
+POST
+/virtualization/api/v1/vcenters/{vcguid}/storage-backends/{id}/discovery-jobs
+----
+
+NOTE: 온보드 스토리지 백엔드(SVM 또는 클러스터) 워크플로우 및 사후 스토리지 백엔드 API 응답에서 ID를 가져옵니다.
+
+이 API 엔드포인트에서의 검색은 로컬 범위 스토리지 백엔드에 대해서만 지원되며 글로벌 범위 스토리지 백엔드에 대해서는 지원되지 않습니다. 스토리지 백엔드 유형이 cluster이면 하위 SVM에 대해 검색이 암시적으로 실행됩니다. 스토리지 백엔드 유형이 SVM인 경우 선택한 SVM에 대해서만 검색이 실행됩니다.
+
+예:
+
+ID로 지정된 스토리지 백엔드에서 검색을 실행합니다
+
+[listing]
+----
+POST
+/api/v1/vcenters/3fa85f64-5717-4562-b3fc-2c963f66afa6/storage-backends/74e85f64-5717-4562-b3fc-2c963f669dde/discovery-jobs
+----
+API에 대한 x-auth를 전달해야 합니다. Swagger의 Auth 아래에 추가된 새 API에서 이 x-auth를 생성할 수 있습니다.
+
+[listing]
+----
+/virtualization/api/v1/auth/vcenter-login
+----

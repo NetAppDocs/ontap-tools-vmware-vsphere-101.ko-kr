@@ -1,0 +1,48 @@
+---
+permalink: automation/manage-threshold-workflow.html 
+sidebar: sidebar 
+keywords: REST APIs, swagger 
+summary: 워크플로는 특정 관리 작업 또는 목표를 달성하는 데 필요한 하나 이상의 단계를 순서대로 수행하는 것입니다. 
+---
+= 스토리지 임계값 관리
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+다음 Get Threshold API를 사용하여 볼륨 및 애그리게이트에 대해 구성된 스토리지 임계값 제한을 검색합니다.
+
+[listing]
+----
+GET​/virtualization​/api​/v1​/vcenters​/{vcguid}​/storage-thresholds
+----
+예: vCenter GUID를 통해 vCenter Server 인스턴스당 스토리지 임계값을 가져옵니다
+
+[listing]
+----
+GET "/api/v1/vcenters/beded9ad-6bbb-4c9e-b4c6-691250bfe2da/storage-thresholds"
+----
+구성된 임계값 제한에 도달하면 다음 패치 구성 알람을 사용하여 볼륨 및 애그리게이트에 대해 알림을 생성합니다.
+
+[listing]
+----
+PATCH​/virtualization​/api​/v1​/vcenters​/{vcguid}​/storage-thresholds
+----
+예: vCenter GUID를 사용하여 vCenter당 스토리지 임계값을 업데이트합니다. 기본 한도는 거의 가득 찬 경우 80%, 가득 찬 경우 90%입니다. 모든 임계값 설정 수정
+
+[listing]
+----
+{{{}PATCH "/api/v1/vcenters/beded9ad-6bbb-4c9e-b4c6-691250bfe2da/storage-thresholds"
+Request Body
+{
+"volume":
+
+{ "nearly_full_percent": 80, "full_percent": 90 }
+,
+"aggregate": {
+"nearly_full_percent": 80,
+"full_percent": 90
+}
+}{}}}{}
+----

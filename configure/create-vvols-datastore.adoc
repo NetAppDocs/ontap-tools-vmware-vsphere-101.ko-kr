@@ -1,0 +1,90 @@
+---
+permalink: configure/create-vvols-datastore.html 
+sidebar: sidebar 
+keywords:  
+summary: 새 볼륨 또는 기존 볼륨으로 VVOL 데이터 저장소를 생성할 수 있습니다. 기존 볼륨과 새 볼륨을 조합하여 VVOL 데이터 저장소를 생성할 수도 있습니다. 
+---
+= 데이터 저장소를 생성합니다
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+호스트 클러스터 레벨에서 데이터 저장소를 생성하면 데이터 저장소가 대상의 모든 호스트에 생성되고 마운트되며 현재 사용자에게 실행 권한이 있는 경우에만 작업이 활성화됩니다.
+
+데이터 저장소 생성 작업 마법사는 NFS, VMFS 및 VVol 데이터 저장소 생성을 지원합니다.
+
+
+
+== VVOL 데이터 저장소를 생성합니다
+
+새 볼륨 또는 기존 볼륨으로 VVOL 데이터 저장소를 생성할 수 있습니다. 기존 볼륨과 새 볼륨이 혼합된 VVOL 데이터 저장소를 생성할 수 없습니다.
+
+
+NOTE: 루트 애그리게이트가 SVM에 매핑되지 않았는지 확인합니다.
+
+.시작하기 전에
+VASA Provider가 선택한 vCenter에 등록되어 있는지 확인합니다.
+
+.단계
+. 을 사용하여 vSphere Client에 로그인합니다 `\https://vcenterip/ui`
+. 호스트 시스템 또는 호스트 클러스터 또는 데이터 센터를 마우스 오른쪽 버튼으로 클릭한 다음 * NetApp ONTAP tools * > * Create Datastore * 를 선택합니다.
+. Type * 창에서 * Datastore Type * 에서 VVol을 선택합니다.
+. Name and Protocol * 창에서 * Datastore name * 및 * Protocol * 정보를 입력합니다.
+. 스토리지 * 창에서 * 플랫폼 * 및 * 스토리지 VM * 을 선택합니다. 고급 옵션 * 섹션에서 해당하는 경우 사용자 지정 내보내기 정책(NFS 프로토콜의 경우) 또는 사용자 지정 이니시에이터 그룹 이름(iSCSI 프로토콜의 경우)을 선택합니다.
++
+** 플랫폼 및 비대칭 옵션을 사용하면 SVM 드롭다운 옵션을 필터링할 수 있습니다. 볼륨을 생성하거나 데이터 저장소 생성에 사용할 SVM을 선택해야 합니다.
+** 이전 단계에서 iSCSI를 선택하고 플랫폼 드롭다운에서 성능 또는 용량을 선택한 경우에만 * 비대칭 * 토글 버튼이 표시됩니다.
+** AFF 플랫폼의 경우 * 비대칭 * 토글 버튼을 선택하고 ASA 플랫폼의 경우 비활성화합니다.
+
+
+. Storage attributes * 창에서 새 볼륨을 생성하거나 기존 볼륨을 사용할 수 있습니다. 새 볼륨을 생성할 때 데이터 저장소에서 QoS를 사용하도록 설정할 수 있습니다.
+. Summary * 창에서 선택 항목을 검토하고 * Finish * 를 클릭합니다. VVol 데이터 저장소가 생성되고 모든 호스트에 마운트됩니다.
+
+
+
+
+== NFS 데이터 저장소를 생성합니다
+
+VMware NFS(Network File System) 데이터 저장소는 NFS 프로토콜을 사용하여 네트워크를 통해 ESXi 호스트를 공유 스토리지 디바이스에 연결합니다. NFS 데이터 저장소는 VMware vSphere 환경에서 일반적으로 사용되며 사용 편의성과 유연성과 같은 여러 가지 이점을 제공합니다.
+
+.단계
+. 을 사용하여 vSphere Client에 로그인합니다 `\https://vcenterip/ui`
+. 호스트 시스템 또는 호스트 클러스터 또는 데이터 센터를 마우스 오른쪽 버튼으로 클릭한 다음 * NetApp ONTAP tools * > * Create Datastore * 를 선택합니다.
+. Type * 창의 * Datastore Type * 에서 NFS를 선택합니다.
+. Name and Protocol * 창에서 데이터스토어 이름, 크기 및 프로토콜 정보를 입력합니다. 고급 옵션에서 * Datastore cluster * 및 * Kerberos Authentication * 을 선택합니다.
++
+
+NOTE: Kerberos 인증은 NFS 4.1 프로토콜을 선택한 경우에만 사용할 수 있습니다.
+
+. Storage * 창에서 * Platform * 및 * Storage VM * 을 선택합니다. 고급 옵션 * 섹션에서 * 사용자 지정 수출 정책 * 을 선택할 수 있습니다.
++
+** * 비대칭 * 토글 버튼은 플랫폼 드롭다운에서 성능 또는 용량을 선택한 경우에만 표시됩니다.
+** * 플랫폼 드롭다운의 임의 * 옵션을 사용하면 플랫폼 또는 비대칭 플래그에 관계없이 vCenter의 일부인 모든 SVM을 볼 수 있습니다.
+
+
+. Storage Attributes * 창에서 볼륨 생성을 위한 집계를 선택합니다. 고급 옵션에서 필요에 따라 * Space Reserve * 및 * Enable QoS * 를 선택합니다.
+. Summary * 창에서 선택 항목을 검토하고 * Finish * 를 클릭합니다.
+
+
+NFS 데이터 저장소가 생성되고 모든 호스트에 마운트됩니다.
+
+
+
+== VMFS 데이터 저장소를 생성합니다
+
+VMFS(Virtual Machine File System)는 VMware vSphere 환경에 가상 머신 파일을 저장하도록 특별히 설계된 클러스터 파일 시스템입니다. 여러 ESXi 호스트가 동일한 가상 머신 파일에 동시에 액세스할 수 있으므로 vMotion 및 High Availability 같은 기능을 사용할 수 있습니다.
+
+.단계
+. 을 사용하여 vSphere Client에 로그인합니다 `\https://vcenterip/ui`
+. 호스트 시스템 또는 호스트 클러스터 또는 데이터 저장소를 마우스 오른쪽 버튼으로 클릭하고 * NetApp ONTAP tools * > * Create Datastore * 를 선택합니다.
+. Type * 창의 * Datastore Type * 에서 VMFS를 선택합니다.
+. Name and Protocol * 창에서 데이터 저장소 이름, 크기 및 프로토콜 정보를 입력합니다. 창의 * Advanced Options * 섹션에서 이 데이터 저장소를 추가할 데이터 저장소 클러스터를 선택합니다.
+. Storage 창에서 Platform and Storage VM 을 선택합니다. 비대칭 토글 버튼을 선택합니다. 창의 * 고급 옵션 * 섹션에 * 사용자 지정 이니시에이터 그룹 이름 * 을 제공합니다(선택 사항). 데이터 저장소에 대해 기존 igroup을 선택하거나 사용자 지정 이름으로 새로운 igroup을 생성할 수 있습니다.
++
+플랫폼 드롭다운에서 * any * 옵션을 선택하면 플랫폼 또는 비대칭 플래그와 상관없이 vCenter의 일부인 모든 SVM을 볼 수 있습니다.
+
+. 스토리지 속성 창의 드롭다운 메뉴에서 * Aggregate * 를 선택합니다. 고급 옵션 * 섹션에서 필요에 따라 * 공간 예약 *, * 기존 볼륨 사용 * 및 * QoS * 활성화 옵션을 선택하고 필요한 세부 정보를 제공합니다.
+. Summary * 창에서 데이터 저장소 세부 정보를 검토하고 * Finish * 를 클릭합니다. VMFS 데이터 저장소는 모든 호스트에 생성되고 마운트됩니다.
+

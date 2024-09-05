@@ -1,0 +1,35 @@
+---
+permalink: deploy/download-ontap-tools.html 
+sidebar: sidebar 
+keywords:  
+summary: NetApp Support 사이트에서 VMware vSphere용 ONTAP 툴에 대한 .ova 파일을 다운로드할 수 있습니다. 
+---
+= VMware vSphere용 ONTAP 툴 다운로드
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+ `.zip`바이너리(_.ova_)가 포함된 파일과 VMware vSphere용 ONTAP 툴에 대한 서명된 인증서를 에서 다운로드할 수 https://mysupport.netapp.com/site/products/all/details/otv/downloads-tab["NetApp Support 사이트"^] 있습니다.
+
+구축이 완료되면 VMware vSphere 및 VASA 제품용 ONTAP 툴이 사용자 환경에 설치됩니다. 기본적으로 VMware vSphere용 ONTAP 툴은 구축 모델을 결정하고 요구 사항에 따라 VASA Provider를 사용할지 여부를 선택하는 즉시 작동합니다. 자세한 내용은 을 link:../configure/registration-process.html["vCenter Server 인스턴스에 VASA Provider를 등록합니다"] 참조하십시오.
+
+
+
+== 콘텐츠 라이브러리
+
+VMware의 컨텐츠 라이브러리는 VM 템플릿, vApp 템플릿 및 기타 유형의 파일을 저장하는 컨테이너 객체입니다. 콘텐츠 라이브러리를 사용한 배포는 네트워크 연결에 의존하지 않으므로 원활한 환경을 제공합니다.
+
+
+NOTE: 클러스터의 모든 호스트가 액세스할 수 있도록 컨텐츠 라이브러리를 공유 데이터 저장소에 저장해야 합니다. OVA를 HA 구성으로 배포하기 전에 OVA를 저장할 콘텐츠 라이브러리를 만들어야 합니다. 다음 단계를 사용하여 콘텐츠 라이브러리를 만듭니다.
+
+* 단계 *
+
+. 을 사용하여 vSphere Client에 로그인합니다 `\https://vcenterip/ui`
+. vSphere Client 옆에 있는 가로 줄임표를 선택하고 * Content library * 를 선택합니다.
+. 페이지 오른쪽에서 * 만들기 * 를 선택합니다.
+. 라이브러리 이름을 지정하고 콘텐츠 라이브러리를 만듭니다.
+. 만든 콘텐츠 라이브러리로 이동합니다.
+. 페이지 오른쪽의 * Actions * 를 선택하고 * Import item * 을 선택한 후 OVA 파일을 가져옵니다.
+

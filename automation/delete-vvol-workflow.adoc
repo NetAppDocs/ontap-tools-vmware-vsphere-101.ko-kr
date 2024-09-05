@@ -1,0 +1,53 @@
+---
+permalink: automation/delete-vvol-workflow.html 
+sidebar: sidebar 
+keywords: REST APIs, swagger 
+summary: 워크플로는 특정 관리 작업 또는 목표를 달성하는 데 필요한 하나 이상의 단계를 순서대로 수행하는 것입니다. 
+---
+= VVols 데이터 저장소를 삭제합니다
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+데이터 저장소에서 FlexVol 볼륨을 하나 이상 사용할 수 있는 경우 VVol 데이터 저장소가 존재합니다. HA 클러스터에서 VVol 데이터 저장소를 삭제하려면 먼저 HA 클러스터 내의 모든 호스트에서 데이터 저장소를 마운트 해제한 다음 vCenter Server 사용자 인터페이스를 사용하여 수동으로 localating_.vsphere-ha_folder를 삭제해야 합니다.
+
+* 단계 *
+
+다음 API를 사용하여 VVol 데이터 저장소를 삭제합니다.
+
+[listing]
+----
+DELETE
+​/virtualization​/api​/v1​/vcenters​/{vcguid}​/vvols​/datastores​/{moref}
+----
+예
+
+* VVol 데이터 저장소를 삭제하고 스토리지에서 볼륨을 삭제합니다
+
+
+[listing]
+----
+  DELETE /api/v1/vcenters/cdded9ad-6bsd-4c9e-b44g-691250bfe2df/vvols/datastores/datastore-28?delete_volumes=true
+----
+
+NOTE: Delete VVols Datastore 워크플로는 DELETE_VOLUME 플래그를 true로 전달한 경우 DataStore-볼륨이 관리되는지 여부와 관계없이 Datastore-volumes를 삭제합니다.
+
+* VVol 데이터 저장소를 삭제하고 스토리지에서 볼륨을 삭제하지 마십시오
+
+
+[listing]
+----
+  DELETE /api/v1/vcenters/cdded9ad-6bsd-4c9e-b44g-691250bfe2df/vvols/datastores/datastore-28?delete_volumes=false
+----
+응답:
+
+[listing]
+----
+{
+
+    "id": "1889"
+
+}
+----

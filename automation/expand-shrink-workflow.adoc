@@ -1,0 +1,101 @@
+---
+permalink: automation/expand-shrink-workflow.html 
+sidebar: sidebar 
+keywords: REST APIs, swagger 
+summary: 워크플로는 특정 관리 작업 또는 목표를 달성하는 데 필요한 하나 이상의 단계를 순서대로 수행하는 것입니다. 
+---
+= VVOL 데이터 저장소의 스토리지를 확장 또는 축소합니다
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+사용 가능한 스토리지를 늘리거나 줄일 수 있는 API가 있습니다.
+
+* 단계 *
+
+다음 API를 사용하여 VVol 데이터 저장소를 확장하거나 축소합니다.
+
+[listing]
+----
+PATCH
+​/virtualization​/api​/v1​/vcenters​/{vcguid}​/vvols​/datastores​/{moref}​/volumes
+----
+예
+
+* 새 볼륨을 추가할 수 있도록 VVOL 데이터 저장소를 수정합니다
+
+
+[listing]
+----
+  PATCH virtualization/api/v1/vcenters/cdded9ad-6bsd-4c9e-b44g-691250bfe2df/vvols/datastores/datastore-24/volumes
+
+    Request Body
+   {
+    "operation": "grow",
+    "volumes": [{
+        "is_existing": false,
+        "name": "exp3",
+        "size_in_mb": 51200,
+        "space_efficiency": "thin",
+        "aggregate": {
+            "id": "1466e4bf-c6d6-411a-91d5-c4f56210e1ab"
+        },
+        "storage_backend": {
+            "storage_id": "13d86e4f-1fb1-11ee-9509-005056a75778"
+        },
+        "qos": {
+            "max_iops": 5000
+        }
+    }]
+}
+----
+* 기존 볼륨을 추가하기 위해 VVOL 데이터 저장소를 수정합니다
+
+
+[listing]
+----
+  PATCH virtualization/api/v1/vcenters/cdded9ad-6bsd-4c9e-b44g-691250bfe2df/vvols/datastores/datastore-24/volumes
+
+    Request Body
+    {
+      "operation": "grow",
+      "volumes": [{
+        "is_existing": true,
+        "id": "vfded9ad-6bsd-4c9e-b44g-691250bfe2sd"
+      }]
+    }
+----
+* 볼륨을 제거하고 스토리지에서 볼륨을 삭제하기 위해 VVol 데이터 저장소를 수정합니다
+
+
+[listing]
+----
+  PATCH virtualization/api/v1/vcenters/cdded9ad-6bsd-4c9e-b44g-691250bfe2df/vvols/datastores/datastore-24/volumes?delete_volumes=true
+
+    Request Body
+    {
+      "operation": "shrink",
+      "volumes": [{
+        "is_existing": true,
+        "id": "vfded9ad-6bsd-4c9e-b44g-691250bfe2sd"
+      }]
+    }
+----
+* 볼륨 제거를 위해 VVol 데이터 저장소를 수정하고 스토리지에서 볼륨을 삭제하지 마십시오
+
+
+[listing]
+----
+  PATCH virtualization/api/v1/vcenters/cdded9ad-6bsd-4c9e-b44g-691250bfe2df/vvols/datastores/datastore-24/volumes?delete_volumes=false
+
+    Request Body
+    {
+      "operation": "shrink",
+      "volumes": [{
+        "is_existing": true,
+        "id": "vfded9ad-6bsd-4c9e-b44g-691250bfe2sd"
+      }]
+    }
+----

@@ -1,0 +1,55 @@
+---
+permalink: deploy/recovery-deployment.html 
+sidebar: sidebar 
+keywords:  
+summary: VMware vSphere 설정용 ONTAP 툴을 잃어버렸지만 ONTAP가 작동한다면 ONTAP를 사용하여 VMware vSphere 설정용 ONTAP 툴을 복구할 수 있습니다. 설정을 잃으면 설정을 정상적으로 종료합니다. 
+---
+= VMware vSphere 설정을 위한 ONTAP 툴을 복구합니다
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+VMware vSphere 설정용 ONTAP 툴을 잃어버리면 ONTAP 볼륨 데이터에 제공되는 데이터를 사용하여 VMware vSphere 설정용 ONTAP 툴을 복구할 수 있습니다. 설정을 잃으면 설정을 정상적으로 종료합니다.
+
+
+NOTE: vCenter Server 또는 ONTAP 데이터 관리 소프트웨어에 문제가 있는 경우 VMware vSphere 설정용 ONTAP 툴을 복구할 수 없습니다.
+
+* 단계 *
+
+. vSphere 서버에 로그인합니다.
+. OVA를 구축할 리소스 풀, 노드 클러스터 또는 호스트로 이동합니다.
+. 필요한 위치를 마우스 오른쪽 버튼으로 클릭하고 * Deploy OVF template * 를 선택합니다.
+. _.ova_ 파일의 URL을 입력하거나 _.ova_ 파일이 저장된 폴더를 찾은 후 * 다음 * 을 선택합니다.
++
+
+NOTE: 복구 설정 설치에 사용한 것과 동일한 OVA 빌드를 사용해야 합니다.
+
+. 가상 머신의 이름과 폴더를 선택하고 * Next * 를 선택합니다.
+. 호스트를 선택하고 * Next * 를 선택합니다.
+. 템플릿 요약을 검토하고 * 다음 * 을 선택합니다.
+. 사용권 계약을 읽고 동의한 후 * Next * 를 선택합니다.
+. Configuration * 창에서 * Recovery * 옵션을 선택합니다.
+. Select storage * 창에서 구성 및 디스크 파일의 스토리지를 선택합니다.
+. 네트워크 선택 * 창에서 각 소스 네트워크에 대한 대상 네트워크를 선택합니다.
++
+
+NOTE: 로드 밸런서 IP 주소 및 Kubernetes API Server IP 주소를 유지해야 합니다. 노드 IP 주소를 변경하거나 동일한 IP 주소를 유지할 수 있습니다.
+
+. Customize template * > * system configuration * window를 선택합니다. 다음 세부 정보를 입력합니다.
++
+.. 애플리케이션 사용자 이름 및 암호: 이 사용자 이름과 암호는 vCenter Server에서 VASA Provider와 SRA를 모두 등록하는 데 사용됩니다. 이는 초기 배포 시 제공된 사용자 이름 및 암호와 다를 수 있습니다.
+.. 기본적으로 * Enable ASUP * 확인란이 선택되어 있습니다.
+
+
+
+
+AutoSupport는 배포 중에만 활성화 또는 비활성화할 수 있습니다. ... AutoSupport 데이터 전송에 대한 방화벽 차단을 방지하기 위해 * ASUP 프록시 URL * 필드에 이 URL을 입력합니다. ... 관리자 사용자 이름 및 관리자 암호: ONTAP 도구 관리자에 로그인하는 데 사용되는 암호입니다. 이는 초기 배포 시 제공된 사용자 이름 및 암호와 다를 수 있습니다. ... NTP 서버 * 필드에 NTP 서버 정보를 입력합니다. ... 유지 관리 사용자 암호: 유지 관리 콘솔 옵션에 대한 액세스 권한을 부여하는 데 사용됩니다. . Customize template * > * Deployment Configuration * 창에 구축하는 동안 제공된 세부 정보를 입력합니다. 데이터 LIF 값을 제외하고 이 섹션의 모든 값은 초기 구축 중에 제공된 값과 같아야 합니다.
+
+
+NOTE: 복구 데이터가 저장되는 위치에서 스토리지 SVM 이름을 변경하면 안 됩니다. 이는 직접 추가한 SVM 사용자 계정에도 적용됩니다. . HA 배포 복구의 경우 다음 세부 정보를 제공합니다. 콘텐츠 라이브러리 세부 정보입니다. vCenter 구성 세부 정보 . Customize template * > * Node Configuration * 창에 복구하려는 설정, 비 HA 또는 HA 설정으로 세부 정보를 입력합니다. . 완료 준비 * 창에서 세부 정보를 검토하고 * 마침 * 을 선택합니다.
+
++ 구축 작업이 생성되면 vSphere 작업 표시줄에 진행 상황이 표시됩니다. . 작업 완료 후 VM의 전원을 켭니다.
+
++ 설치가 시작됩니다. VM의 웹 콘솔에서 설치 진행률을 추적할 수 있습니다. 설치 과정에서 노드 구성이 검증됩니다. OVF 양식의 Customize(사용자 지정) 템플릿 아래에 있는 여러 섹션에 제공된 입력의 유효성을 검사합니다. 일치하지 않는 경우 대화 상자에 시정 조치를 취하라는 메시지가 표시됩니다. . 대화 상자 프롬프트에서 필요한 사항을 변경합니다. Tab 버튼을 사용하여 패널을 탐색하여 값을 입력합니다. * OK * 또는 * Cancel * 을 선택합니다. . 확인 * 또는 * 취소 * 를 선택하면 제공된 값이 다시 검증됩니다. VMware용 ONTAP 툴을 사용하면 잘못된 값을 3회 수정할 수 있습니다. 세 번 시도해도 문제를 해결할 수 없는 경우 제품 설치가 중지되고 새 VM에서 설치를 시도하는 것이 좋습니다. . 설치가 완료되면 웹 콘솔에 VMware vSphere용 ONTAP 툴의 상태가 표시됩니다. 설치가 완료되면 페이지의 지침에 따라 하드웨어 요구 사항을 수동으로 편집해야 link:../deploy/sizing-requirements.html["VMware vSphere용 ONTAP 툴을 구축하기 위한 사전 요구 사항"] 합니다.

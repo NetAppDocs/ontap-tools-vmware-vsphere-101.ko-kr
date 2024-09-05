@@ -1,0 +1,32 @@
+---
+permalink: automation/svm-workflow.html 
+sidebar: sidebar 
+keywords: REST APIs, swagger 
+summary: 데이터 저장소 프로비저닝에 SVM 사용자 자격 증명을 사용하기 위해 VMware vSphere용 ONTAP 툴은 데이터 저장소 POST API에 지정된 애그리게이트에 볼륨을 생성합니다. 
+---
+= SVM 애그리게이트 매핑 요구사항
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+데이터 저장소 프로비저닝에 SVM 사용자 자격 증명을 사용하기 위해 VMware vSphere용 ONTAP 툴은 데이터 저장소 POST API에 지정된 애그리게이트에 볼륨을 생성합니다. ONTAP에서는 SVM 사용자 자격 증명을 사용하여 SVM의 매핑되지 않은 애그리게이트에 볼륨을 생성할 수 없습니다. 이 문제를 해결하려면 여기에서 설명하는 대로 ONTAP REST API 또는 CLI를 사용하여 SVM을 애그리게이트와 매핑합니다.
+
+ONTAP REST API:
+
+[listing]
+----
+PATCH "/api/svm/svms/f16f0935-5281-11e8-b94d-005056b46485"
+'{"aggregates":{"name":["aggr1","aggr2","aggr3"]}}'
+----
+ONTAP CLI:
+
+[listing]
+----
+sti115_vsim_ucs630f_aggr1 vserver show-aggregates
+AvailableVserver Aggregate State Size Type SnapLock
+Type
+svm_test sti115_vsim_ucs630f_aggr1
+online 10.11GB vmdisk non-snaplock
+----

@@ -1,0 +1,55 @@
+---
+permalink: deploy/prepare-deployment.html 
+sidebar: sidebar 
+keywords:  
+summary: 어플라이언스를 사용하려면 VMware vSphere용 ONTAP 툴을 환경에 구축하고 필요한 매개 변수를 지정해야 합니다. 
+---
+= VMware vSphere용 ONTAP 툴을 구축할 준비를 합니다
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+VMware vSphere용 ONTAP 툴을 구축하기 전에 기본 스토리지 백엔드 요구 사항, 애플리케이션 요구 사항 및 라이센스 요구 사항을 숙지해야 합니다. 구축 계획을 미리 계획하고 해당 환경에서 VMware vSphere용 ONTAP 툴을 구성하는 방법을 결정합니다.
+
+
+
+== 배포 준비 중
+
+구축을 진행하기 전에 VMware vSphere 요구 사항에 대한 ONTAP 툴은 다음과 같습니다.
+
+. vCenter Server 환경을 구성하고 설정합니다.
+. _.ova_file을 다운로드합니다.
+. (선택 사항) 자동화 사용자를 위해 사용됨 - NetApp에서 제공하는 Postman 컬렉션 JSON 파일을 수집합니다.
+. OVA를 구축하기 위한 상위 vCenter Server 자격 증명 상위 vCenter Server 암호에는 이러한 특수 문자($,',")가 포함될 수 없습니다.
+. OVA가 구축된 호스트 또는 리소스 풀에 link:../deploy/sizing-requirements.html["VMware vSphere용 ONTAP 툴을 구축하기 위한 사전 요구 사항"]섹션에 나와 있는 최소 리소스가 있는지 확인합니다.
+. VMware vSphere용 ONTAP 툴이 등록을 위해 구축 후에 연결할 vCenter Server 인스턴스의 로그인 자격 증명입니다.
+. 브라우저 캐시를 삭제합니다.
+. HA가 아닌 배포의 경우 3개의 무료 IP 주소, 로드 밸런서를 위한 무료 IP 주소 1개, Kubernetes 컨트롤 플레인을 위한 무료 IP 주소 1개, 노드에 대한 IP 주소 1개가 필요합니다. HA 배포의 경우 이 세 개의 IP 주소와 함께 두 번째 및 세 번째 노드에 대해 두 개의 추가 IP 주소가 필요합니다. 호스트 이름은 를 할당하기 전에 DNS의 사용 가능한 IP 주소에 매핑되어야 합니다. 5개의 IP 주소 모두 배포용으로 선택된 동일한 VLAN에 있어야 합니다.
+. 업로드한 콘텐츠 라이브러리 서식 파일은 재부팅 중에 사용되므로 배포 후 삭제해서는 안 됩니다.
+. 사용자 지정 CA 인증서가 필수인 다중 vCenter 배포에서 인증서가 발급되는 도메인 이름을 가상 IP 주소로 매핑합니다. 도메인 이름에 대해 _nslookup_check를 수행하여 도메인이 원하는 IP 주소로 확인되는지 확인합니다. 인증서는 부하 분산 장치 IP 주소의 도메인 이름과 IP 주소를 사용하여 만들어야 합니다.
+. IPv4/IPv6 지원 VLAN - Pure IPv6은 지원되지 않습니다. 혼합 모드는 IPv6 주소와 IPv4 주소가 모두 있는 VLAN에서 지원됩니다.
+. 시간 동기화를 위해 vCenter Server에 제공되는 NTP 서버입니다.
+. 정적 IP 주소 OVA가 배포되는 노드 또는 VM에 대한 구성 세부 정보(필수) 및 기타 세부 정보
++
+.. vCenter Server 호스트 이름(OVA가 구축되는 vCenter)
+.. vCenter Server 사용자 이름(OVA가 구축되는 vCenter)
+.. vCenter Server 암호(OVA가 구축되는 vCenter)
+.. 리소스 풀
+.. 데이터 LIF(IPv4/IPv6)
+.. 관리 LIF
+.. ONTAP 사용자 이름입니다
+.. ONTAP 암호입니다
+.. SVM 이름
+.. 프로토콜
+.. Kubernetes 컨트롤 플레인의 가상 IP 주소입니다.
+.. HA/비 HA 드롭다운
+.. 호스트 이름 목록입니다
+.. IP 주소(문자열)
+.. 콘텐츠 라이브러리 이름입니다
+.. OVF 템플릿 이름입니다
+.. IPv6 게이트웨이(선택 사항)
+
+
+

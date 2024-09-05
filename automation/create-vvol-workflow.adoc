@@ -1,0 +1,64 @@
+---
+permalink: automation/create-vvol-workflow.html 
+sidebar: sidebar 
+keywords: REST APIs, swagger 
+summary: 워크플로는 특정 관리 작업 또는 목표를 달성하는 데 필요한 하나 이상의 단계를 순서대로 수행하는 것입니다. 
+---
+= VVOL 데이터 저장소를 생성합니다
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+새 볼륨 또는 기존 볼륨으로 VVOL 데이터 저장소를 생성할 수 있습니다. 기존 볼륨과 새 볼륨을 조합하여 VVOL 데이터 저장소를 생성할 수도 있습니다.
+
+
+NOTE: 루트 애그리게이트가 SVM에 매핑되지 않았는지 확인합니다.
+
+데이터 저장소를 생성하기 전에 JWT 토큰을 생성하거나 vCenter에서 'Maximum Bearer Token Lifetime'을 60m으로 설정하여 SAML 토큰 만료를 늘리십시오.
+
+API에 대한 x-auth를 전달해야 합니다. Swagger의 Auth 아래에 추가된 새 API에서 이 x-auth를 생성할 수 있습니다.
+
+/virtualization/api/v1/auth/vcenter-login 을 참조하십시오
+
+. 새 볼륨으로 VVOL 데이터 저장소를 생성합니다.
+
+
+ONTAP REST API를 사용하여 애그리게이트 ID, 스토리지_ID(SVM uuid)를 가져옵니다. post/virtualization/api/v1/vCenters/cdded9ad-6bsd-4c9e-b44g-691250bfe2df/vVols/데이터 저장소
+
+다음 URI를 사용하여 상태를 확인합니다.
+
+를 누릅니다
+
+[listing]
+----
+`\https://xx.xx.xx.xxx:8443/virtualization/api/jobmanager/v2/jobs/<JobID>?includeSubJobsAndTasks=true`
+----
++ NFS 데이터 저장소에 대한 요청 본문
+
+{"name":"nfsds1","protocol":"nfs","platform_type":"AFF","moref":"domain-c8","volumes"
+
+iSCSI 데이터 저장소에 대한 요청 본문: {"name":"iscsi_custom","protocol":"iscsi","platform_type":"AFF","moref":"" 도메인-c8":":"""" siscsi_cusual", "si_c91dediGroup-6564" -631mb-5dediGroup"," -6564" -631mb" -631dddf2df2df2d" 기존 볼륨으로 VVOL 데이터 저장소를 생성합니다.
+
+ONTAP REST API를 사용하여 aggregate_id와 volume_id를 얻습니다.
+
+ POST /virtualization/api/v1/vcenters/cdded9ad-6bsd-4c9e-b44g-691250bfe2df/vvols/datastores
+요청 본문
+
+....
+ {
+"name" : "nfsds2",
+"protocol" : "nfs",
+"platform_type": "aff",
+"moref" : "domain-c8",
+"volumes" : [
+    {
+          "is_existing": true,
+          "id": "e632a632-1412-11ee-8a8c-00a09860a3ff"
+        }
+],
+"storage_backend": {
+                    "storage_id": "33a8b6b3-10cd-11ee-8a8c-00a09860a3ff"    }
+....
+}

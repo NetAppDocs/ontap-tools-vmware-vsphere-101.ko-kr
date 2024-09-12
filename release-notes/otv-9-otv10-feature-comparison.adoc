@@ -1,0 +1,40 @@
+---
+permalink: release-notes/otv-9-otv10-feature-comparison.html 
+sidebar: sidebar 
+keywords: release notes, feature, comparison 
+summary: OTV 9 및 OTV 10 기능 비교에 대해 알아봅니다 
+---
+= OTV 9 및 OTV 10 기능 비교
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+OTV 9에서 OTV 10.1로 마이그레이션하는 것이 귀사에 적합한지 알아보십시오. 최신 호환성 정보는 을 참조하십시오 https://mysupport.netapp.com/matrix["NetApp 상호 운용성 매트릭스 툴"^].
+
+[cols="20%,40%,40%"]
+|===
+| 피처 | ONTAP 도구 9.13 | ONTAP 도구 10.1 
+
+
+| 주요 가치 제안 | 향상된 보안, 규정 준수 및 자동화 기능으로 Day 0 ~ Day 2 운영을 간소화하고 단순화합니다 | 10.x에서 9.x 패리티로 진화하는 ONTAP 도구, 고가용성, 성능 및 확장성 제한 확장 
+
+
+| ONTAP 릴리스 자격 | ONTAP 9.9.1에서 ONTAP 9.15.1로 | ONTAP 9.12.1에서 ONTAP 9.14.1로 
+
+
+| VMware 릴리스 지원 | vSphere 7.x-8.x SRM 8.5 - 9.0 | vSphere 7.x-8.x SRM 8.7-9.0 
+
+
+| 프로토콜 지원 | 기존 데이터 저장소: NFS(v3 및 v4.1), VMFS(iSCSI 및 FCP) VVol: iSCSI, FCP, NVMe/FC, NFS v3 | 기존 데이터 저장소: NFS(v3 및 v4.1), VMFS(iSCSI) VVol: iSCSI, NFS v3 
+
+
+| 확장성 | 호스트 및 VM: 호스트 300개, VM 최대 10,000개 데이터 저장소: NFS 600개, VMFS 최대 50개, VVol 최대 250개: 최대 14,000개 | 호스트 및 VM: 호스트 vVols 600개: 최대 140K 
+
+
+| 관찰 가능성 | 성능, 용량 및 호스트 규정 준수 대시보드 동적 VM 및 데이터 저장소 보고서 | 업데이트된 성능, 용량 및 호스트 규정 준수 대시보드 동적 VM 및 데이터 저장소 보고서 
+
+
+| 데이터 보호 | VMFS 및 NFS FlexVol에 대한 SRA 복제 VVols SCV 통합 및 백업에 대한 상호 운용이 가능한 복제 기반 | iSCSI VMFS 및 NFS v3 데이터 저장소에 대한 SRA 복제 
+|===

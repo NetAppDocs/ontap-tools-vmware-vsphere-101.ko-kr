@@ -1,0 +1,96 @@
+---
+permalink: release-notes/whats-new-otv-101.html 
+sidebar: sidebar 
+keywords: 'what"s new, release notes, otv, 10.1' 
+summary: OTV 10.1에서 제공되는 새로운 기능에 대해 알아보십시오. 
+---
+= VMware vSphere 10.1용 ONTAP 툴의 새로운 기능
+:allow-uri-read: 
+
+
+[role="lead"]
+VMware vSphere 10.1용 ONTAP 툴에서 사용할 수 있는 새로운 기능에 대해 알아보십시오.
+
+[cols="30%,70%"]
+|===
+| 업데이트 | 설명 
+
+
+ a| 
+xref:../manage/migrate-standard-virtual-machines-to-vvols-datastores.html[NFS 및 VMFS 데이터 저장소 지원]
+ a| 
+이번 릴리즈된 VMware vSphere용 ONTAP 툴은 VASA Provider, NFS v3 및 VMFS 데이터 저장소를 통한 VVOL 데이터 저장소 프로비저닝을 지원합니다. 생성, 크기 조정, 마운트, 마운트 해제 및 삭제와 같은 데이터 저장소 작업이 지원됩니다. iSCSI 프로토콜을 사용하여 VMFS 데이터 저장소를 프로비저닝할 수 있습니다. VMware 관리자는 VMware vSphere 9.xx 버전용 ONTAP 도구에서 10.1 버전으로 iSCSI VMFS 데이터 저장소를 원활하게 배포, 업그레이드 및 전환할 수 있습니다. 마이그레이션은 VMware vSphere 9.10D2, 9.11D4, 9.12 및 9.13 릴리즈용 ONTAP 툴에서 10.1 릴리즈로 지원됩니다.
+
+
+
+ a| 
+xref:../protect/configure-storage-replication-adapter-for-san-environment.html[NFS 및 VMFS 데이터 저장소용 SRA(Storage Replication Adapter]
+ a| 
+SRA는 VMware SRM(Site Recovery Manager) 사양 기반 DR(재해 복구)을 구현합니다. NFS 데이터 저장소의 경우 ONTAP 볼륨은 NFS v3 프로토콜을 사용하여 ESXi 호스트에 마운트됩니다. VMFS 데이터 저장소의 경우 ONTAP LUN은 iSCSI 프로토콜을 사용하여 ESXi 호스트에 마운트됩니다.
+
+ONTAP SnapMirror 관계에서는 타겟 사이트의 볼륨 및 LUN을 복제합니다. SRA는 VMware SRM에서 호출된 testFailover, failover 및 reprotect 명령을 구현합니다. 구축의 일환으로 SRA는 복구 인시던트에서 모든 볼륨 및 LUN을 대상에 마운트할 수 있도록 하고, 데이터 불일치를 방지하기 위해 보조 사이트 볼륨 및 LUN을 읽습니다.
+
+
+
+ a| 
+xref:../configure/dashboard-overview.html[모든 워크플로우에 대한 풍부한 vCenter UI(User Interface) 통합 지원]
+ a| 
+VMware vSphere 10.1용 ONTAP 툴은 워크플로우용 그래픽 사용자 인터페이스를 제공하여 VMware vSphere 9.xx 릴리즈용 ONTAP 툴과 패리티를 제공합니다. 원격 플러그인은 다음을 지원합니다.
+
+* xref:../manage/migrate-standard-virtual-machines-to-vvols-datastores.html[NFS, VMFS 및 VVOL 데이터 저장소의 관찰 가능성 및 모니터링]
+* xref:../protect/configure-storage-replication-adapter-for-san-environment.html[NFS 및 VMFS 데이터 저장소용 스토리지 복제 어댑터]
+* xref:../configure/registration-process.html[VASA 공급자 등록 및 등록 취소]
+* xref:../configure/install-nfs-vaai-plug-in.html[VAAI 플러그인 설치]
+* xref:../manage/collect-the-log-files.html[선택한 vCenter에 대한 로그 번들 다운로드]
+
+
+
+
+ a| 
+xref:../deploy/nonha-deployment.html[손쉬운 배포 변형 지원]
+ a| 
+VMware vSphere 10.1용 ONTAP 툴을 빠르게 온보딩하고 간편한 구축 옵션을 사용하여 기능을 경험할 수 있습니다. 스냅샷 기반 복구는 쉬운 배포에서 지원됩니다.
+
+
+
+ a| 
+xref:../configure/manager-user-interface.html[ONTAP 툴 모든 ONTAP 툴 관리 워크플로우를 위한 관리자 UI]
+ a| 
+ONTAP tools Manager를 사용하면 ONTAP 툴 관리자가 관리되는 vCenter 인스턴스 및 온보드된 스토리지 백엔드를 더욱 효과적으로 제어할 수 있습니다. ONTAP Tools Manager는 다음과 같은 기능을 제공합니다.
+
+* vCenter 관리 - VMware vSphere용 ONTAP 툴에 vCenter 인스턴스를 추가 및 관리합니다.
+* 스토리지 백엔드 관리 - ONTAP 스토리지 클러스터를 VMware vSphere용 ONTAP 툴에 추가 및 관리하고 전체적으로 온보딩된 vCenter 인스턴스에 매핑합니다.
+* 로그 번들 다운로드 - VMware vSphere용 ONTAP 툴에 대한 로그 파일을 수집합니다.
+* 인증서 관리 - 자체 서명된 인증서를 사용자 지정 CA 인증서로 변경하고 모든 인증서를 갱신하거나 새로 고칩니다.
+* 암호 관리 - 사용자에 대한 OVA 응용 프로그램 암호를 재설정합니다.
+
+
+
+
+ a| 
+xref:../manage/certificate-manage.html[인증서 관리]
+ a| 
+VMware vSphere용 ONTAP 툴의 단일 인스턴스에서 여러 vCenter 인스턴스를 관리할 수 있습니다. VMware vSphere용 ONTAP 툴을 구축하면 기본적으로 자체 서명된 인증서가 모든 vCenter 인스턴스에 할당됩니다. 여러 vCenter 인스턴스를 관리하고 있는 상태에서 여러 vCenter 인스턴스에서 VVol 기능을 활성화하려면 ONTAP tools Manager 인터페이스를 사용하여 자체 서명된 인증서를 사용자 지정 CA 인증서로 변경해야 합니다. 동일한 인터페이스를 사용하여 모든 인증서를 갱신하거나 새로 고칠 수 있습니다.
+
+
+
+ a| 
+xref:../concepts/ontap-tools-concepts-terms.html[제로 복구 시점 목표(RPO) 복구]
+ a| 
+VMware vSphere 설정용 ONTAP 툴을 잃어버리면 데이터 손실 없이 ONTAP 데이터 관리 소프트웨어를 사용하여 ONTAP 툴 설정을 복구할 수 있습니다. 제로 RPO 복구는 쉬운 구축 옵션에 지원되지 않습니다.
+
+
+
+ a| 
+배포를 위한 iSCSI 프로토콜 지원
+ a| 
+Trident는 영구 볼륨을 프로비저닝할 수 있도록 NFS 및 iSCSI 프로토콜을 지원합니다. VMware vSphere용 ONTAP 툴을 구축할 때 iSCSI 프로토콜을 사용하여 VASA 공급자 서비스 데이터를 영구 볼륨에 저장할 수 있습니다.
+
+
+
+ a| 
+스토리지 및 vCenter 온보딩을 위한 IPv6 주소 지원
+ a| 
+IPv4 주소, IPv6 주소 또는 FQDN(정규화된 도메인 이름)을 사용하여 스토리지 백엔드를 온보딩할 수 있습니다. 스토리지 서비스 및 스토리지 프록시 서비스는 동일한 IPv4 또는 IPv6 주소를 가진 온보드된 자격 증명을 사용하여 ONTAP REST API와 통신합니다. 내보내기 정책 규칙을 사용하여 IPv4 주소, IPv6 주소 또는 FQDN에서 데이터 경로가 지원됩니다.
+
+|===

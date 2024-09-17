@@ -1,8 +1,8 @@
 ---
 permalink: release-notes/whats-new-otv-101.html 
 sidebar: sidebar 
-keywords: 'what"s new, release notes, otv, 10.1' 
-summary: OTV 10.1에서 제공되는 새로운 기능에 대해 알아보십시오. 
+keywords: 'what"s new, release notes, otv, 10.1, ONTAP tools for VMware vSphere' 
+summary: VMware vSphere 10.1용 ONTAP 툴에서 사용할 수 있는 새로운 기능에 대해 알아보십시오. 
 ---
 = VMware vSphere 10.1용 ONTAP 툴의 새로운 기능
 :allow-uri-read: 

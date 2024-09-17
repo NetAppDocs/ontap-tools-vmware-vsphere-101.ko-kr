@@ -1746,10 +1746,7 @@
   <block id="a239701adb72159a71164b036c18a53a" category="sidebar">보호 및 복구 사이트 리소스를 구성합니다</block>
   <block id="6956cfc9382ccb41c8ac57f99255b409" category="sidebar">복제된 스토리지 시스템을 확인합니다</block>
   <block id="a2fa58344be7fbd9a2be0320a8df0f77" category="sidebar">ONTAP 툴을 업그레이드합니다</block>
-  <block id="45c0cb8a573040ec3a3c91b49388ce77" category="summary">OTV 9 및 OTV 10 기능 비교에 대해 알아봅니다</block>
-  <block id="bec34363c22ae7f416bb150033204752" category="doc">OTV 9 및 OTV 10 기능 비교</block>
   <block id="9ed4a475dd3705157a9fed8811f63ce2" category="inline-link">NetApp 상호 운용성 매트릭스 툴</block>
-  <block id="7bbd8ba71af073421f64a911c595d804" category="paragraph">OTV 9에서 OTV 10.1로 마이그레이션하는 것이 귀사에 적합한지 알아보십시오. 최신 호환성 정보는 을 참조하십시오<block ref="0aaf04254af18646f3d246cd4a4b417d" category="inline-link-rx"></block>.</block>
   <block id="21021ea0e52be8e9c599f4dff41e5be0" category="cell">피처</block>
   <block id="e2e5efdc8b340ced50733afbe15a4fad" category="cell">ONTAP 도구 9.13</block>
   <block id="ec00f002c530dcfbc3a0e06a58d47937" category="cell">ONTAP 도구 10.1</block>
@@ -1760,11 +1757,7 @@
   <block id="f69940d2c889c5ba58609514e4ec4bff" category="cell">ONTAP 9.9.1에서 ONTAP 9.15.1로</block>
   <block id="d4dcb3d0be17e55a6784a2f961f93bc2" category="cell">ONTAP 9.12.1에서 ONTAP 9.14.1로</block>
   <block id="d67ece44624c7aa69b0f38715d1ac2fb" category="cell">VMware 릴리스 지원</block>
-  <block id="e14179d4b312d9cfca14436389327be5" category="cell">vSphere 7.x-8.x SRM 8.5 - 9.0</block>
-  <block id="bcfc58d0493001a6860f0cd2b68840b3" category="cell">vSphere 7.x-8.x SRM 8.7-9.0</block>
   <block id="30388d1a3ab1a01f6930553a577eb80b" category="cell">프로토콜 지원</block>
-  <block id="d5ff81a2866c816e348cdd6f08ed39e4" category="cell">기존 데이터 저장소: NFS(v3 및 v4.1), VMFS(iSCSI 및 FCP) VVol: iSCSI, FCP, NVMe/FC, NFS v3</block>
-  <block id="ef79cc3ec55f1ee802c8bef4053dfebe" category="cell">기존 데이터 저장소: NFS(v3 및 v4.1), VMFS(iSCSI) VVol: iSCSI, NFS v3</block>
   <block id="2d215ebfc0280f8163d071454ec7ce01" category="cell">확장성</block>
   <block id="250a44c4a8c52c86430d21b997042d19" category="cell">호스트 및 VM: 호스트 300개, VM 최대 10,000개 데이터 저장소: NFS 600개, VMFS 최대 50개, VVol 최대 250개: 최대 14,000개</block>
   <block id="e9ecfce2c9d4f4584ac79acfbd1b505a" category="cell">호스트 및 VM: 호스트 vVols 600개: 최대 140K</block>
@@ -1777,9 +1770,7 @@
   <block id="705b94fd1b511a1c9c06a21279f92615" category="paragraph">VMware vSphere 10.1용 ONTAP 툴에서 사용할 수 있는 새롭고 향상된 기능에 대해 알아보십시오.</block>
   <block id="6157debca7d3f3948f1725114e76924b" category="inline-xref-macro">VMware vSphere 10.1용 ONTAP 툴의 새로운 기능</block>
   <block id="8ad73d2923c566307bb64baa5d027f1e" category="paragraph">새로운 기능 및 향상된 기능의 전체 목록은 를 참조하십시오<block ref="ec6dda21da143161509af94ddcaf0c28" category="inline-xref-macro-rx"></block>.</block>
-  <block id="bcc22b06b618a9db830b76770830c578" category="paragraph">VMware vSphere 9용 ONTAP 툴에서 ONTAP Tools 10.1로의 마이그레이션이 올바른 방법인지 자세히 알아보려면 을 참조하십시오<block ref="d850f8a270263c8f340a6395269dd624" category="inline-xref-macro-rx"></block>. VMware vSphere 9.10D2, 9.11D4, 9.12 및 9.13 릴리스의 ONTAP 툴에서 ONTAP 툴 10.1로의 마이그레이션이 지원됩니다.</block>
   <block id="7c9c963f9e315e09a32dfb79b88d92b8" category="paragraph">VMware vSphere 10.1용 ONTAP 툴의 알려진 문제 및 제한 사항에 대한 자세한 내용은 를<block ref="82f186bdee145660ad8025b64bc47ede" category="inline-link-rx"></block>참조하십시오. 릴리스 정보에 액세스하려면 NetApp 계정으로 로그인하거나 계정을 만들어야 합니다.</block>
-  <block id="e5af075103bba1e5e194c9d0c74f1e1f" category="summary">OTV 10.1에서 제공되는 새로운 기능에 대해 알아보십시오.</block>
   <block id="246423e206dcb100415831177697c50a" category="doc">VMware vSphere 10.1용 ONTAP 툴의 새로운 기능</block>
   <block id="8531963bc35662f1a07cf43203d718fe" category="paragraph">VMware vSphere 10.1용 ONTAP 툴에서 사용할 수 있는 새로운 기능에 대해 알아보십시오.</block>
   <block id="06933067aafd48425d67bcb01bba5cb6" category="cell">업데이트</block>
@@ -1823,4 +1814,13 @@
   <block id="3e68f004e881d64eee5503230989baef" category="paragraph">스토리지 및 vCenter 온보딩을 위한 IPv6 주소 지원</block>
   <block id="21a0626546cb66a4a2685b4121ca68a2" category="paragraph">IPv4 주소, IPv6 주소 또는 FQDN(정규화된 도메인 이름)을 사용하여 스토리지 백엔드를 온보딩할 수 있습니다. 스토리지 서비스 및 스토리지 프록시 서비스는 동일한 IPv4 또는 IPv6 주소를 가진 온보드된 자격 증명을 사용하여 ONTAP REST API와 통신합니다. 내보내기 정책 규칙을 사용하여 IPv4 주소, IPv6 주소 또는 FQDN에서 데이터 경로가 지원됩니다.</block>
   <block id="5dd03e8d039863e563e049be198c3fd3" category="sidebar">릴리즈 노트</block>
+  <block id="7cf21d459cdbb9c2a1e4864da9f56b5a" category="summary">VMware vSphere 9용 ONTAP 툴과 VMware vSphere 10용 ONTAP 툴 기능 비교에 대해 알아보십시오</block>
+  <block id="8db6f8bda67c3085df85aeea7d620ac7" category="doc">VMware vSphere 9용 ONTAP 툴 및 VMware vSphere 10용 ONTAP 툴 기능 비교</block>
+  <block id="46593fa664efb28c6d0dbcda3cacd798" category="paragraph">VMware vSphere 9용 ONTAP 툴에서 VMware vSphere 10.1용 ONTAP 툴로 마이그레이션하는 것이 귀사에 적합한지 알아보십시오. 최신 호환성 정보는 을 참조하십시오<block ref="0aaf04254af18646f3d246cd4a4b417d" category="inline-link-rx"></block>.</block>
+  <block id="af0223f5c63fe0b5a6e75d3087868abd" category="cell">vSphere 7.x-8.x VMware SRM(Site Recovery Manager) 8.5에서 VMware Live Site Recovery 9.0으로 마이그레이션</block>
+  <block id="170ea24c94c478abd1871386c2d1ec72" category="cell">vSphere 7.x-8.x VMware SRM(Site Recovery Manager) 8.7에서 VMware Live Site Recovery 9.0으로</block>
+  <block id="e810af0cb36135a5b8e6f2da4440d6cb" category="cell">NFS 및 VMFS 데이터 저장소: NFS(v3 및 v4.1), VMFS(iSCSI 및 FCP) 데이터 저장소: iSCSI, FCP, NVMe/FC, NFS v3</block>
+  <block id="8bc8491da19ddf762b07de3144d61829" category="cell">NFS 및 VMFS 데이터 저장소: NFS(v3 및 v4.1), VMFS(iSCSI) VVol 데이터 저장소: iSCSI, NFS v3</block>
+  <block id="9f309a586570bbc1fff689704b3dad01" category="paragraph">VMware vSphere 9용 ONTAP 툴에서 ONTAP Tools 10.1로의 마이그레이션이 올바른 방법인지 자세히 알아보려면 을 참조하십시오<block ref="947428ca1064f8d19137fb8976698998" category="inline-xref-macro-rx"></block>. VMware vSphere 9.10D2, 9.11D4, 9.12 및 9.13 릴리스의 ONTAP 툴에서 ONTAP 툴 10.1로의 마이그레이션이 지원됩니다.</block>
+  <block id="ed8359854c43609fca7bc8a46cca9eac" category="sidebar">ONTAP tools 9 및 ONTAP tools 10 기능 비교</block>
 </blocks>

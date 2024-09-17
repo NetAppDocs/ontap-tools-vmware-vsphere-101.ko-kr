@@ -1,17 +1,17 @@
 ---
-permalink: release-notes/otv-9-otv10-feature-comparison.html 
+permalink: release-notes/ontap-tools-9-ontap-tools-10-feature-comparison.html 
 sidebar: sidebar 
 keywords: release notes, feature, comparison 
-summary: OTV 9 및 OTV 10 기능 비교에 대해 알아봅니다 
+summary: VMware vSphere 9용 ONTAP 툴과 VMware vSphere 10용 ONTAP 툴 기능 비교에 대해 알아보십시오 
 ---
-= OTV 9 및 OTV 10 기능 비교
+= VMware vSphere 9용 ONTAP 툴 및 VMware vSphere 10용 ONTAP 툴 기능 비교
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-OTV 9에서 OTV 10.1로 마이그레이션하는 것이 귀사에 적합한지 알아보십시오. 최신 호환성 정보는 을 참조하십시오 https://mysupport.netapp.com/matrix["NetApp 상호 운용성 매트릭스 툴"^].
+VMware vSphere 9용 ONTAP 툴에서 VMware vSphere 10.1용 ONTAP 툴로 마이그레이션하는 것이 귀사에 적합한지 알아보십시오. 최신 호환성 정보는 을 참조하십시오 https://mysupport.netapp.com/matrix["NetApp 상호 운용성 매트릭스 툴"^].
 
 [cols="20%,40%,40%"]
 |===
@@ -24,10 +24,10 @@ OTV 9에서 OTV 10.1로 마이그레이션하는 것이 귀사에 적합한지 �
 | ONTAP 릴리스 자격 | ONTAP 9.9.1에서 ONTAP 9.15.1로 | ONTAP 9.12.1에서 ONTAP 9.14.1로 
 
 
-| VMware 릴리스 지원 | vSphere 7.x-8.x SRM 8.5 - 9.0 | vSphere 7.x-8.x SRM 8.7-9.0 
+| VMware 릴리스 지원 | vSphere 7.x-8.x VMware SRM(Site Recovery Manager) 8.5에서 VMware Live Site Recovery 9.0으로 마이그레이션 | vSphere 7.x-8.x VMware SRM(Site Recovery Manager) 8.7에서 VMware Live Site Recovery 9.0으로 
 
 
-| 프로토콜 지원 | 기존 데이터 저장소: NFS(v3 및 v4.1), VMFS(iSCSI 및 FCP) VVol: iSCSI, FCP, NVMe/FC, NFS v3 | 기존 데이터 저장소: NFS(v3 및 v4.1), VMFS(iSCSI) VVol: iSCSI, NFS v3 
+| 프로토콜 지원 | NFS 및 VMFS 데이터 저장소: NFS(v3 및 v4.1), VMFS(iSCSI 및 FCP) 데이터 저장소: iSCSI, FCP, NVMe/FC, NFS v3 | NFS 및 VMFS 데이터 저장소: NFS(v3 및 v4.1), VMFS(iSCSI) VVol 데이터 저장소: iSCSI, NFS v3 
 
 
 | 확장성 | 호스트 및 VM: 호스트 300개, VM 최대 10,000개 데이터 저장소: NFS 600개, VMFS 최대 50개, VVol 최대 250개: 최대 14,000개 | 호스트 및 VM: 호스트 vVols 600개: 최대 140K 

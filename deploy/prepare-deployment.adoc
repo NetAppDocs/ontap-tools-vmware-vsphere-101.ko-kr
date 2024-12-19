@@ -52,4 +52,5 @@ VMware vSphere용 ONTAP 툴을 구축하기 전에 기본 스토리지 백엔드
 .. IPv6 게이트웨이(선택 사항)
 
 
+. HA가 아닌 고급 및 HA 구성에서 VMware vSphere 10.1용 ONTAP 툴을 설치하기 전에 KB 문서: https://kb.netapp.com/on-prem/ontap/da/NAS/NAS-KBs/pre-requisites_for_installing_OTV_10.1_and_10.2_in_NonHA_Advanced_and_HA["비 HA 고급 및 HA 구성을 위한 사전 요구 사항"]
 

@@ -1823,4 +1823,6 @@
   <block id="8bc8491da19ddf762b07de3144d61829" category="cell">NFS 및 VMFS 데이터 저장소: NFS(v3 및 v4.1), VMFS(iSCSI) VVol 데이터 저장소: iSCSI, NFS v3</block>
   <block id="9f309a586570bbc1fff689704b3dad01" category="paragraph">VMware vSphere 9용 ONTAP 툴에서 ONTAP Tools 10.1로의 마이그레이션이 올바른 방법인지 자세히 알아보려면 을 참조하십시오<block ref="947428ca1064f8d19137fb8976698998" category="inline-xref-macro-rx"></block>. VMware vSphere 9.10D2, 9.11D4, 9.12 및 9.13 릴리스의 ONTAP 툴에서 ONTAP 툴 10.1로의 마이그레이션이 지원됩니다.</block>
   <block id="ed8359854c43609fca7bc8a46cca9eac" category="sidebar">ONTAP tools 9 및 ONTAP tools 10 기능 비교</block>
+  <block id="f6e2644fce556a8207829c90c0760e9e" category="inline-link">비 HA 고급 및 HA 구성을 위한 사전 요구 사항</block>
+  <block id="1194197b73e30573b06eeec54d3ca76d" category="list-text">HA가 아닌 고급 및 HA 구성에서 VMware vSphere 10.1용 ONTAP 툴을 설치하기 전에 KB 문서:<block ref="e4dee65de4069a83bb14c7c7d5ee3ead" category="inline-link-rx"></block></block>
 </blocks>

@@ -1699,7 +1699,6 @@
   <block id="3f50e7c6b4d426580688c6da56153793" category="list-text">인증서 업그레이드</block>
   <block id="ef68cd44177b6a31df6410ebc4f7c5e1" category="list-text">원격 플러그인 업그레이드</block>
   <block id="8f7be3c874feb6ef0fd5f20afd8d5fbb" category="sidebar">VMware vSphere용 ONTAP 툴을 사용하면 vCenter Server 환경에서 가상 데이터 저장소를 구성, 관리 및 보호할 수 있습니다.</block>
-  <block id="26ffc687a7267f96a389530199971cd1" category="sidebar">VMware vSphere용 ONTAP 툴 설명서</block>
   <block id="be11c74c1dd7f307bb80183a90dc2067" category="sidebar">시작하십시오</block>
   <block id="da951ef1610be90b45b31baf7b25b179" category="sidebar">VMware vSphere용 ONTAP 툴에 대해 자세히 알아보십시오</block>
   <block id="2a03ee5b0887b8a6bf23fd52456544db" category="sidebar">VMware vSphere용 ONTAP 툴을 구축합니다</block>
@@ -1825,4 +1824,5 @@
   <block id="ed8359854c43609fca7bc8a46cca9eac" category="sidebar">ONTAP tools 9 및 ONTAP tools 10 기능 비교</block>
   <block id="f6e2644fce556a8207829c90c0760e9e" category="inline-link">비 HA 고급 및 HA 구성을 위한 사전 요구 사항</block>
   <block id="1194197b73e30573b06eeec54d3ca76d" category="list-text">HA가 아닌 고급 및 HA 구성에서 VMware vSphere 10.1용 ONTAP 툴을 설치하기 전에 KB 문서:<block ref="e4dee65de4069a83bb14c7c7d5ee3ead" category="inline-link-rx"></block></block>
+  <block id="a62e9d532f8887c09395a1edc29c465f" category="sidebar">VMware vSphere 10.1용 ONTAP 툴 설명서</block>
 </blocks>
